@@ -10,4 +10,20 @@ import { PersonTableComponent } from './components/person-table/person-table.com
 })
 export class AppComponent {
   name = "Manos";
+
+  person0 = {
+    givenName : "manos",
+    surName : "daskalelis",
+    age: 27,
+    email: "manosdaskalelis@aueb.gr",
+    address: "Athens, Greece"
+  };
+
+  person1 = {
+    givenName : "John",
+    surName : "Doe",
+    age: 27,
+    email: "john@example.com",
+    address: "New York, USA"
+  };
 }
