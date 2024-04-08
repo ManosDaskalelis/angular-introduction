@@ -21,7 +21,7 @@ export class ComponentOutputExampleComponent {
   onPersonClicked(person: EPerson){
     // alert(this.personTemplate(person));
     this.dialog.open(PersonDialogComponent, {
-      data: person,
+      data: person
     });
   }
 
@@ -41,9 +41,11 @@ export class ComponentOutputExampleComponent {
 @Component({
   imports: [PersonTableComponent],
   standalone: true,
-  template:` 
-  <app-person-table [person]= "person"><app-person-table>
-  <button class="btn btn-primary btn-sm" (click)="dialogRef.close">Close</button>
+  template: `
+    <app-person-table [person]="person"></app-person-table>
+    <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">
+      Close
+    </button>
   `,
   styles: [
     `
