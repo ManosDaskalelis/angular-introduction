@@ -4,11 +4,13 @@ import { JokesService } from 'src/app/shared/services/jokes.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @Component({
   selector: 'app-http-client-example',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+  ],
   templateUrl: './http-client-example.component.html',
   styleUrl: './http-client-example.component.css'
 })
@@ -18,18 +20,18 @@ export class HttpClientExampleComponent implements OnInit {
   chuckNorrisJoke = ''
 
   ngOnInit(): void {
-    this.refreshDadJoke()
-    this.refreshChuckNorrisJoke()
     // this.jokesService.getDadJoke().subscribe((data: DadJoke) => {
     //   console.log(data.joke);
     //   this.dadJoke = data.joke;
     // });
+    this.refreshDadJoke();
     // this.jokesService.getChuckNorrisJoke().subscribe((data: ChuckNorrisJoke) => {
     //   console.log(data.value);
     //   this.chuckNorrisJoke = data.value;
     // });
+    this.refreshChuckNorrisJoke();
   }
-
+  
   refreshDadJoke() {
     this.jokesService.getDadJoke().subscribe((data: DadJoke) => {
       this.dadJoke = data.joke;

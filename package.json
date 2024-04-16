@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=https://ManosDaskalelis.github.io/angular-introduction/"
+    "deploy": "ng deploy --base-href=https://ioannisskr.github.io/angular-introduction/"
   },
   "private": true,
   "dependencies": {
@@ -17,19 +17,20 @@
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
     "@angular/forms": "^17.3.0",
-    "@angular/material": "^17.3.2",
+    "@angular/material": "^17.3.3",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "bootstrap": "^5.3.3",
+    "jwt-decode": "^4.0.0",
     "lodash-es": "^4.17.21",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.2",
-    "@angular/cli": "^17.3.2",
+    "@angular-devkit/build-angular": "^17.3.1",
+    "@angular/cli": "^17.3.1",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
     "@types/lodash-es": "^4.17.12",

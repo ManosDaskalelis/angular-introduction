@@ -26,10 +26,10 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class UserRegistrationComponent {
   userService = inject(UserService);
 
-  registerationStatus: {success: boolean; message: string} = {
+  registrationStatus: { success: boolean; message: string } = {
     success: false,
     message: 'Not attempted yet',
-  }
+  };
 
   form = new FormGroup(
     {
@@ -59,33 +59,29 @@ export class UserRegistrationComponent {
   onSubmit(value: any) {
     console.log(value);
 
-    const user = this.form.value as User
-    delete user['confirmPassword']
-    
+    const user = this.form.value as User;
+    delete user['confirmPassword'];
 
     this.userService.registerUser(user).subscribe({
       next: (response) => {
         console.log('User registered', response.msg);
-        this.registerationStatus= {success: true, message: response.msg}
-       },
+        this.registrationStatus = { success: true, message: response.msg };
+      },
       error: (response) => {
-        const message = response.error.msg
+        const message = response.error.msg;
         console.log('Error registering user', message);
-        this.registerationStatus= {success: false, message: response.msg}
-      }
-    })
+        this.registrationStatus = { success: false, message };
+      },
+    });
   }
 
   registerAnotherUser() {
-    this.form.reset()
-    this.registerationStatus = {
-      success: false,
-      message: 'Not attempted yet',
-    }
+    this.form.reset();
+    this.registrationStatus = { success: false, message: 'Not attempted yet' };
   }
 
   check_duplicate_email() {
-    const email = this.form.get('email').value
+    const email = this.form.get('email').value;
 
     this.userService.check_duplicate_email(email).subscribe({
       next: (response) => {
@@ -95,9 +91,8 @@ export class UserRegistrationComponent {
       error: (response) => {
         const message = response.error.msg;
         console.log(message);
-        this.form.get('email').setErrors({duplicateEmail: true})
-        
-      }
-    })
+        this.form.get('email').setErrors({ duplicateEmail: true });
+      },
+    });
   }
 }

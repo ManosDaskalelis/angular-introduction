@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Person } from 'src/app/shared/interfaces/person';
 import { PersonTableComponent } from '../person-table/person-table.component';
 
 @Component({
@@ -10,19 +9,19 @@ import { PersonTableComponent } from '../person-table/person-table.component';
   styleUrl: './component-input-example.component.css'
 })
 export class ComponentInputExampleComponent {
-  person0: Person = {
-    givenName : "manos",
-    surName : "daskalelis",
-    age: 27,
-    email: "manosdaskalelis@aueb.gr",
-    address: "Athens, Greece"
+  person0 = {
+    givenName: "Ioannis",
+    surName: "Skretis",
+    age: 44,
+    email: "ayeegiannos@gmail.com",
+    address: 'Athens, Greece'
   };
 
-  person1: Person = {
-    givenName : "John",
-    surName : "Doe",
-    age: 27,
-    email: "john@example.com",
-    address: "New York, USA"
+  person1 = {
+    givenName: "George",
+    surName: "Skretis",
+    age: 74,
+    email: "ayeegiannos2@gmail.com",
+    address: 'Athens, Greece'
   };
 }

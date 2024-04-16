@@ -9,7 +9,7 @@ import { EPerson, Person } from 'src/app/shared/interfaces/person';
   styleUrl: './person-table.component.css'
 })
 export class PersonTableComponent {
-  @Input() person: Person | EPerson | undefined;
+  @Input() person: Person | EPerson | undefined; 
 
   isPerson() {
     return this.person && 'address' in this.person;

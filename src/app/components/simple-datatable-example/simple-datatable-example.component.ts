@@ -10,5 +10,5 @@ import { ManyPerson } from 'src/app/shared/interfaces/person';
   styleUrl: './simple-datatable-example.component.css'
 })
 export class SimpleDatatableExampleComponent {
-  manyPerson = ManyPerson;
+manyperson = ManyPerson;
 }

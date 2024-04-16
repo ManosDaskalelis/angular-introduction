@@ -1,10 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { EPerson, ManyPerson } from "src/app/shared/interfaces/person";
+import { EPerson, ManyPerson } from 'src/app/shared/interfaces/person';
 import { SimpleDatatableComponent } from '../simple-datatable/simple-datatable.component';
-// import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle, MatDialogContent,MatDialogActions, MatDialogClose,} from '@angular/material/dialog';
+import {Dialog, DialogRef, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 import { PersonTableComponent } from '../person-table/person-table.component';
-import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import {DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-component-output-example',
@@ -16,36 +14,34 @@ import {DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 export class ComponentOutputExampleComponent {
   manyPerson = ManyPerson;
 
-  constructor(public dialog: Dialog) {}
+  constructor(public dialog: Dialog) { }
 
-  onPersonClicked(person: EPerson){
+  onPersonClicked(person: EPerson) {
     // alert(this.personTemplate(person));
     this.dialog.open(PersonDialogComponent, {
-      data: person
+      data: person,
     });
   }
 
   personTemplate(person: EPerson) {
     return `
     Person Details:
-    
+
     First Name: ${person.givenName}
     Last Name: ${person.surName}
-    Age : ${person.age}
-    Email : ${person.email}
-    Education : ${person.education}
-    `
+    Age: ${person.age}
+    Email: ${person.email}
+    Education: ${person.education}
+    `;
   }
-
 }
+
 @Component({
   imports: [PersonTableComponent],
   standalone: true,
   template: `
-    <app-person-table [person]="person"></app-person-table>
-    <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">
-      Close
-    </button>
+  <app-person-table [person]="person"></app-person-table>
+  <button class="btn btn-primary btn-sm" (click)="dialogRef.close()">Close</button>
   `,
   styles: [
     `
@@ -59,9 +55,10 @@ export class ComponentOutputExampleComponent {
     `,
   ],
 })
+
 class PersonDialogComponent {
   constructor(
-    public dialogRef: DialogRef,
+    public dialogRef: DialogRef<PersonDialogComponent>,
     @Inject(DIALOG_DATA) public person: EPerson,
   ) {}
-}
+ };
