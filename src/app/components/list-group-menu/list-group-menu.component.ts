@@ -38,6 +38,9 @@ export class ListGroupMenuComponent {
     },
     {
       text: 'Fun for Nerds Game', routerLink: "fun-for-nerds"
+    },
+    {
+      text: "CRUD example", routerLink: "crud-example"
     }
   ];
 }
